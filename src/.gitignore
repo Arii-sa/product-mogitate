@@ -13,3 +13,13 @@ npm-debug.log
 yarn-error.log
 /.idea
 /.vscode
+
+# Docker MySQL data
+docker/mysql/data/
+docker/mysql/docker-entrypoint-initdb.d/
+docker/mysql/.env
+
+# Laravel build outputs (任意で追加)
+public/build
+/public/css/app.css
+/public/js/app.js

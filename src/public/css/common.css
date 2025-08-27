@@ -1,0 +1,15 @@
+
+
+/* ヘッダー文字装飾 */
+.header__logo {
+    text-align: left;
+    color: rgb(245, 170, 19);
+    font-size: 20px;
+    font-family: "Courgette","游ゴシック", sans-serif;
+}
+
+/* コンテンツのバックカラー */
+.content {
+    background-color: rgb(193, 190, 190);
+}
+
