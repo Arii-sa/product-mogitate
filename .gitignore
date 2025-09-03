@@ -1,0 +1,17 @@
+# Laravel & PHP関連
+/vendor/
+/node_modules/
+/.env
+
+# Storage / キャッシュ
+/src/storage/
+*.log
+
+# Docker MySQL データ
+/docker/mysql/data/
+
+# IDE / OS固有ファイル
+.DS_Store
+.idea/
+*.swp
+
