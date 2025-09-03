@@ -1,0 +1,140 @@
+/* ====== 全体を中央寄せ ====== */
+.create-form {
+    max-width: 600px; /* product-detail と同じくらい */
+    margin: 50px auto;
+    padding: 20px 30px;
+    border-radius: 10px;
+    font-family: sans-serif;
+}
+
+/* ====== タイトル ====== */
+.create-form__title {
+    text-align: center;
+    font-size: 22px;
+    margin-bottom: 25px;
+}
+
+/* ====== フォームグループ ====== */
+.create-form__group {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ====== ラベル（左揃え） ====== */
+.create-form__label {
+    font-weight: bold;
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* ====== 必須ラベル ====== */
+.create-form__required {
+    padding: 2px 6px;
+    background: red;
+    color: #fff;
+    font-size: 12px;
+    border-radius: 4px;
+}
+
+/* ====== 補足メモ ====== */
+.create-form__memo {
+    font-size: 12px;
+    color: #666;
+}
+
+/* ====== 入力欄（幅を統一） ====== */
+.create-form__input,
+.create-form__textarea {
+    width: 100%; /* create-form の幅いっぱい */
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    box-sizing: border-box;
+}
+
+/* ====== ファイル入力（デフォルト非表示） ====== */
+.create-form__image-input {
+    display: none;
+}
+
+/* ====== カスタムのファイル選択ボタン ====== */
+.file-label {
+    display: inline-block;
+    padding: 8px 15px;
+    background: #ffcc00;
+    color: #000;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+
+/* ====== 季節チェックボックス（丸⚪︎型デザイン） ====== */
+.create-form__season-inputs input[type="checkbox"] {
+    appearance: none; /* デフォルトの四角を消す */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%; /* 丸型 */
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+    margin-right: 6px;
+    border: 1px solid #070707;
+}
+
+/* 選択されたときのスタイル（塗りつぶし） */
+.create-form__season-inputs input[type="checkbox"]:checked {
+    background-color: blue;
+}
+
+/* 季節ラベルを横並びに */
+.create-form__season-inputs {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+/* ====== エラーメッセージ ====== */
+.create-form__error-message {
+    color: red;
+    font-size: 13px;
+    margin-top: 4px;
+}
+
+/* ====== ボタンエリア ====== */
+.create-form__back,
+.create-form__btn {
+    padding: 10px 25px;
+    font-size: 14px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    min-width: 120px;
+}
+
+/* 戻るボタン（グレー） */
+.create-form__back {
+    background: #999;
+    color: #fff;
+    margin-right: 10px;
+}
+
+/* 登録ボタン（黄色） */
+.create-form__btn {
+    background: #ffcc00;
+    color: #000;
+}
+
+/* ボタンを横並び中央寄せ */
+.create-form > .create-form__inner > form > div:last-child {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 25px;
+}

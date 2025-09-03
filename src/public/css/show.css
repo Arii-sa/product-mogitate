@@ -1,0 +1,106 @@
+.product-detail {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px 30px;
+    border-radius: 10px;
+    font-family: sans-serif;
+}
+
+.product-detail__title {
+    text-align: center;
+    font-size: 22px;
+    margin-bottom: 25px;
+}
+
+/* 画像と右側の情報を横並び */
+.product-detail__content {
+    display: flex;
+    gap: 30px;
+    margin-bottom: 20px;
+}
+
+/* 左：画像 */
+.product-detail__image img {
+    max-width: 250px;
+    height: auto;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    display: block;
+    margin-bottom: 10px;
+}
+
+/* 右：商品情報 */
+.product-detail__info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
+}
+
+/* 商品説明 */
+.product-detail__description {
+    margin-top: 20px;
+}
+
+/* エラーメッセージ */
+.error {
+    color: red;
+    font-size: 13px;
+}
+
+/* ボタン配置 */
+.product-detail__buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 25px;
+}
+
+.btn-back {
+    background: #999;
+    color: #fff;
+    padding: 10px 25px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.btn-save {
+    background: #ffcc00;
+    color: #000;
+    padding: 10px 25px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+/* 削除ボタンは右寄せ */
+.delete-form {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 10px;
+}
+
+.btn-delete {
+    background: red;
+    color: #fff;
+    padding: 10px 25px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}

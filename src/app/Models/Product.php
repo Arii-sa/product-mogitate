@@ -11,6 +11,8 @@ class Product extends Model
 
     protected $fillable = ['name', 'price', 'image', 'description'];
 
+    const UPDATED_AT = 'update_at';
+    
     public function seasons()
     {
         return $this->belongsToMany(Season::class, 'product_season', 'product_id', 'season_id');
@@ -41,4 +43,6 @@ class Product extends Model
             return $returnTxt;
         }
     }
+
 }
+

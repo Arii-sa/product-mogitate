@@ -9,7 +9,18 @@
 }
 
 /* コンテンツのバックカラー */
+
+html, body{
+    height: 100%;
+    margin: 0;
+}
+
+.header{
+    height: 60px;
+}
+
 .content {
-    background-color: rgb(193, 190, 190);
+    min-height: calc(100vh - 60px); /* ヘッダーを引いた残り全部 */
+    background-color: rgb(227, 226, 226);
 }
 

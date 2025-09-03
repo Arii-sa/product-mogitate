@@ -22,7 +22,7 @@ Route::post('/products/register', [ProductController::class, 'store'])->name('pr
 
 Route::get('/products/{productId}', [ProductController::class, 'show'])->name('products.show'); // 詳細
 Route::get('/products/{productId}/update', [ProductController::class, 'edit'])->name('products.edit'); // 編集画面
-Route::post('/products/{productId}/update', [ProductController::class, 'update'])->name('products.update'); // 更新処理
+Route::put('/products/{productId}/update', [ProductController::class, 'update'])->name('products.update'); // 更新処理
 
 Route::delete('/products/{productId}/delete', [ProductController::class, 'destroy'])->name('products.destroy'); // 削除
 

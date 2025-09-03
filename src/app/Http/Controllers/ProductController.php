@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\Season;
 use App\Models\ProductSeason;
+use Illuminate\Support\Facades\Storage;
+use App\Http\Requests\StoreProductRequest;
+use App\Http\Requests\UpdateProductRequest;
 
 class ProductController extends Controller
 {
@@ -32,9 +35,12 @@ class ProductController extends Controller
         }
 
         // ページネーション (6件ごと)
-        $products = $query->paginate(6);
+        $products = $query->paginate(6)->appends($request->all());
 
-        return view('products.index', compact('products'));
+        return view('products.index', [
+            'products' => $products,
+            'keyword' => $request->keyword,
+            'sort' => $request->sort,]);
     }
 
     /**
@@ -43,7 +49,8 @@ class ProductController extends Controller
     public function show($id)
     {
         $product = Product::with('seasons')->findOrFail($id);
-        return view('products.show', compact('product'));
+        $seasons = Season::all(); // ← 追加
+        return view('products.show', compact('product', 'seasons')); 
     }
 
     /**
@@ -53,10 +60,10 @@ class ProductController extends Controller
     public function create()
     {
         $seasons = Season::all();
-        return view('product.create',compact('seasons'));
+        return view('products.create',compact('seasons'));
     }
 
-    public function store(Request $request)
+    public function store(StoreProductRequest $request)
     {
         // バリデーション
         $validated = $request->validate([
@@ -96,33 +103,24 @@ class ProductController extends Controller
     /**
      * 商品更新処理
      */
-    public function update(Request $request, $id)
+    public function update(UpdateProductRequest $request, $id)
     {
         $product = Product::findOrFail($id);
 
-        // バリデーション
-        $validated = $request->validate([
-            'name' => 'required',
-            'price' => 'required|numeric|min:0|max:10000',
-            'description' => 'required|max:120',
-            'image' => 'nullable|mimes:png,jpeg',
-            'seasons' => 'required|array',
-        ]);
+        $validated = $request->validated();
 
-        // 画像更新（新しい画像があれば差し替え）
+    // 画像更新
         if ($request->hasFile('image')) {
             $path = $request->file('image')->store('products', 'public');
             $product->image = $path;
         }
 
-        // 商品情報更新
         $product->update([
             'name' => $validated['name'],
             'price' => $validated['price'],
             'description' => $validated['description'],
         ]);
 
-        // 中間テーブル更新
         $product->seasons()->sync($validated['seasons']);
 
         return redirect()->route('products.index');
